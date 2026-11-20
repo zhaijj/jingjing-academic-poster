@@ -1,0 +1,70 @@
+# Example spec (claim grid, 2026 cold-tolerance poster). figs/ holds gray placeholders with the real aspect ratios.
+preset: square
+title: "Exploring regulatory rewiring underlying cold tolerance in grasses by fine-tuning a DNA language model"
+authors:
+  - {name: Jingjing Zhai, aff: [1]}
+  - {name: Charlie Hale, aff: [2]}
+  - {name: Renyu Zhang, aff: [1]}
+  - {name: Thuy La, aff: [1]}
+  - {name: Cinta Romay, aff: [1]}
+  - {name: Edward Buckler, aff: [1, 2, 3]}
+affiliations:
+  - Institute for Genomic Diversity, Cornell University, Ithaca, NY USA 14853
+  - Section of Plant Breeding and Genetics, Cornell University, Ithaca, NY USA 14853
+  - USDA-ARS; Ithaca, NY, USA 14853
+email: jz963@cornell.edu
+footer:
+  text: "This project is supported by [FUNDER] ([GRANT #]) and [COMPUTING RESOURCE]."
+  logos: [usda_ars, nsf, cornell_seal, tacc]
+rows:
+  - panels:
+      - title: Major crops are not adapted to cold condition
+        blocks:
+          - row:
+              - {text: "**Maize**", w: 0.6}
+              - {image: figs/f17.png, w: 2}
+          - row:
+              - {text: "**Rice**", w: 0.6}
+              - {image: figs/f21.png, w: 1}
+              - {image: figs/f23.png, w: 1}
+          - text: "Understanding the cis-regulatory basis of cold tolerance could inform efforts to engineer cold-resilient crops."
+      - title: Experimental design and data generation
+        blocks:
+          - row:
+              - {image: figs/f02.png, w: 1.4}
+              - callout: "**RNA-Seq**\n\nControl treatment (24/20 C)"
+                fill: green_box
+                w: 1
+          - callout: "Chilling treatment (10/6 C)"
+            fill: blue_box
+      - title: "PlantCAD2: the state-of-the-art plant DNA foundation model"
+        width: 1.25
+        blocks:
+          - row:
+              - {image: figs/f27.png, w: 1}
+              - {image: figs/f00.png, w: 1.2}
+          - {caption: "*Zhai et al.*, 2025, PNAS; *Zhai et al.*, 2026, Cell Genomics"}
+          - row:
+              - {text: "PlantCAD2 outperforms Evo2 in **{r:10 out of 12}** plant-specific zero-shot tasks!", w: 3}
+              - {image: figs/f29.png, w: 0.6}
+  - panels:
+      - title: Fine-tune PlantCAD2 to predict DEGs
+        blocks:
+          - {text: "**2,048 bp** upstream and downstream of each gene", align: center}
+          - {image: figs/f15.png, caption: "LoRA fine-tuning", caption_align: center}
+          - {callout: "DEGs or not?", fill: blue_box}
+      - title: Motif ablation identified cold-related motifs
+        blocks:
+          - {image: figs/f10.png, weight: 0.6}
+          - {text: "Δ activity = effect of TF motif", align: center}
+          - row:
+              - {image: figs/f12.png, w: 1.4}
+              - {text: "**9 out of top 10** motifs are cold related", w: 1}
+      - title: Core cold-regulatory grammar is shared across 12 grasses
+        width: 1.25
+        blocks:
+          - row:
+              - {callout: "Cold-tolerant model (leave out *Tripsacum*)", fill: yellow_box}
+              - {callout: "Cold-sensitive model (leave out maize)", fill: green_box}
+          - {h: "Consistent motif effect revealed by two models!", align: center}
+          - {image: figs/f31.png}

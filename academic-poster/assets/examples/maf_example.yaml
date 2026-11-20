@@ -1,0 +1,79 @@
+# Example spec (classic columns, 2024 Maize Meeting poster). figs/ holds gray placeholders with the real aspect ratios.
+preset: landscape
+title_bold: false
+title: "Prioritizing deleterious mutations in maize by the pre-trained DNA foundation model"
+authors:
+  - {name: Jingjing Zhai, aff: [1]}
+  - {name: Aaron Gokaslan, aff: [4]}
+  - {name: Zachary R. Miller, aff: [1]}
+  - {name: Ana Berthel, aff: [1]}
+  - {name: M. Cinta Romay, aff: [1, 2]}
+  - {name: Michelle C. Stitzer, aff: [1]}
+  - {name: Volodymyr Kuleshov, aff: [4]}
+  - {name: Edward S. Buckler, aff: [1, 2, 3]}
+affiliations:
+  - Institute for Genomic Diversity, Cornell University, Ithaca, NY USA 14853
+  - Section of Plant Breeding and Genetics, Cornell University, Ithaca, NY USA 14853
+  - USDA-ARS; Ithaca, NY, USA 14853
+  - Department of Computer Science, Cornell University, Ithaca, NY USA 14853
+email: jz963@cornell.edu
+columns:
+  - width: 1.13
+    panels:
+      - title: Background
+        height: 1.25
+        blocks:
+          - h: What are foundation models?
+          - image: figs/fm.png
+          - h: Foundation models in biology
+          - image: figs/esm.png
+            width: 0.5
+            align: left
+            caption: "*Lin et al.*, 2023, Science"
+          - box: Challenges of DNA foundation models
+            bullets:
+              - DNA sequences are more repetitive than protein sequences
+              - DNA's function is heavily influenced by trans-acting elements
+          - h: Why can foundation models prioritize deleterious mutations?
+          - bullets:
+              - Mutations in conserved regions are more likely to be deleterious
+              - Foundation models are capable of learning conservation based on the context of sequences
+      - title: Pre-train a DNA foundation model
+        blocks:
+          - row:
+              - {image: figs/arch.png, caption: "*Benegas et al.*, 2023, PNAS", w: 1}
+              - w: 1.1
+                stack:
+                  - text: "**Outputs:**"
+                    bullets:
+                      - The probability of masked nucleotides
+                      - "Mutation effect: log-likelihood ratio between the alternate and reference allele"
+                  - text: "**Model architecture:**"
+                    bullets: [Convolution neural network]
+                  - text: "**Masked input:**"
+                    bullets: [Masking 15% sites of each sequence]
+                  - text: "**Input:**"
+                    bullets: [Nine genomes from Poaceae family, DNA sequences of 512bp]
+  - width: 1
+    panels:
+      - title: Results
+        height: 2.6
+        blocks:
+          - h: GPN learned the structure of the maize genome
+            align: center
+          - row:
+              - {image: figs/umap.png, w: 1.3}
+              - {text: "UMAP visualization of GPN embeddings for different genomic regions", w: 1}
+          - h: Predicted deleterious mutations exhibit lower MAF than the genome-wide average MAF
+            align: center
+          - row:
+              - {image: figs/maf.png, w: 1.4}
+              - w: 1
+                bullets:
+                  - Mutations prioritized by GPN tended to have lower MAF as prioritizations grew more stringent
+                  - GPN is capable of identifying deleterious mutations across the genome.
+      - title: Acknowledgements
+        blocks:
+          - row:
+              - {text: "This project is supported by [FUNDER] ([GRANT #]) and [COMPUTING RESOURCE].", w: 1.3}
+              - {logos: [usda_ars, nsf, cornell_seal], w: 1, height_in: 1.6}
